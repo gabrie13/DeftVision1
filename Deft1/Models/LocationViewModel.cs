@@ -34,8 +34,11 @@ namespace Deft1.Models
         public string OperationDay { get; set; }
 
         [Display(Name = "Hours of Operation")]
+        
+        public DateTime OperationHours { get; set; }
+
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm}", ApplyFormatInEditMode = true)]
-        public DateTime OperationHours { get; set; }
+        public TimeSpan? Hours { get; set; }
     }
 }
