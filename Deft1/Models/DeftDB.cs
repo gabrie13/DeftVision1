@@ -20,5 +20,7 @@ namespace Deft1.Models
         }
 
         public System.Data.Entity.DbSet<Deft1.Models.Position> Positions { get; set; }
+
+        public System.Data.Entity.DbSet<Deft1.Models.Location> Locations { get; set; }
     }
 }
