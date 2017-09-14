@@ -30,7 +30,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employees.Find(id);
+            EmployeeViewModel employee = _employeeService.FindById(id.Value);
             if (employee == null)
             {
                 return HttpNotFound();

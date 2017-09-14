@@ -28,7 +28,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Positions.Find(id);
+            PositionViewModel position = _positionService.FindById(id.Value);
             if (position == null)
             {
                 return HttpNotFound();

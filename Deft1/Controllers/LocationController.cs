@@ -29,7 +29,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            LocationViewModel location = _locationService.FindById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();

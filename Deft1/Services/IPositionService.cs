@@ -11,5 +11,6 @@ namespace Deft1.Services
     interface IPositionService
     {
         List<PositionViewModel> GetAll();
+        PositionViewModel FindById(int id);
     }
 }

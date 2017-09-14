@@ -26,5 +26,11 @@ namespace Deft1.Services
                 PositionTitle = pos.PositionTitle
             };
         }
+
+        public PositionViewModel FindById(int id)
+        {
+            var position = db.Positions.Find(id);
+            return position != null ? PosDto(position) : null;
+        }
     }
 }

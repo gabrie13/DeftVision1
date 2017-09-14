@@ -14,6 +14,7 @@ namespace Deft1.Models
         [Display(Name = "Location")]
         public string LocationName { get; set; }
 
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
         [DataType(DataType.EmailAddress)]
@@ -34,6 +35,7 @@ namespace Deft1.Models
 
         [Display(Name = "Hours of Operation")]
         [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:t}")]
         public DateTime OperationHours { get; set; }
     }
 }

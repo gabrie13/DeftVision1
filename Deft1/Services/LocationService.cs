@@ -34,5 +34,11 @@ namespace Deft1.Services
             };
         }
 
+        public LocationViewModel FindById(int id)
+        {
+            var location = db.Locations.Find(id);
+            return location != null ? LocDto(location) : null;
+        }
+
     }
 }
