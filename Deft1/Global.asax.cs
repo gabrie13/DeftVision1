@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using Deft1.Models;
 
 namespace Deft1
 {
@@ -12,6 +14,7 @@ namespace Deft1
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new DeftDbSetInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
