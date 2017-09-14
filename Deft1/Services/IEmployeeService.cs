@@ -11,5 +11,6 @@ namespace Deft1.Services
     interface IEmployeeService
     {
         List<EmployeeViewModel> GetAll();
+        EmployeeViewModel FindById(int id);
     }
 }

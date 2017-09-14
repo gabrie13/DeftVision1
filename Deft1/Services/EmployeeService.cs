@@ -31,5 +31,12 @@ namespace Deft1.Services
                 Location   = emp.Location
             };
         }
+
+        public EmployeeViewModel FindById(int id)
+        {
+            var employee = db.Employees.Find(id);
+            return employee != null ? EmpDto(employee) : null;
+
+        }
     }
 }
