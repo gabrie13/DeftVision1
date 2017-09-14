@@ -135,6 +135,10 @@
     </Compile>
     <Compile Include="Models\DeftDB.cs" />
     <Compile Include="Models\DeftDbSetInitializer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeePosition.cs" />
+    <Compile Include="Models\EmployeePositionViewModel.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationViewModel.cs" />
     <Compile Include="Models\Position.cs" />
