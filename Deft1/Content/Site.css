@@ -26,6 +26,8 @@ textarea {
 footer {
     font-family: 'Bradley Hand ITC';
     font-variant: small-caps;
+
     font-size: .8em;
-    color: rgb(128, 128, 128);
+    color: rgba(0, 148, 255, .8);
+
 }
