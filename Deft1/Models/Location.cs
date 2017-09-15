@@ -27,6 +27,6 @@ namespace Deft1.Models
 
         public string OperationDay { get; set; }
 
-        public DateTime OperationHours { get; set; }
+        public TimeSpan? Hours { get; set; }
     }
 }

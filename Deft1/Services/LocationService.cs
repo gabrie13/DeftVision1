@@ -30,7 +30,7 @@ namespace Deft1.Services
                 State          = loc.State,
                 ZipCode        = loc.ZipCode,
                 OperationDay   = loc.OperationDay,
-                OperationHours = loc.OperationHours
+                Hours          = loc.Hours
             };
         }
 
@@ -38,6 +38,31 @@ namespace Deft1.Services
         {
             var location = db.Locations.Find(id);
             return location != null ? LocDto(location) : null;
+        }
+
+        public LocationViewModel Create(LocationViewModel location)
+        {
+            var loc = fromLoc(location);
+            db.Locations.Add(loc);
+            db.SaveChanges();
+            return LocDto(loc);
+        }
+
+        private static Location fromLoc(LocationViewModel location)
+        {
+            var loc = new Location
+            {
+                LocationName = location.LocationName,
+                Address      = location.Address,
+                City         = location.City,
+                State        = location.State,
+                ZipCode      = location.ZipCode,
+                Email        = location.Email,
+                Phone        = location.Phone,
+                OperationDay = location.OperationDay,
+                Hours        = location.Hours   
+            };
+            return loc;
         }
 
     }

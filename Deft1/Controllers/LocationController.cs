@@ -48,12 +48,11 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,OperationHours")] Location location)
+        public ActionResult Create([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,Hours")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
-                db.SaveChanges();
+                _locationService.Create(location);
                 return RedirectToAction("Index");
             }
 
