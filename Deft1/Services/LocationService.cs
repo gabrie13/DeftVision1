@@ -52,6 +52,7 @@ namespace Deft1.Services
         {
             var loc = new Location
             {
+                LocationId   = location.LocationId,
                 LocationName = location.LocationName,
                 Address      = location.Address,
                 City         = location.City,
@@ -63,6 +64,27 @@ namespace Deft1.Services
                 Hours        = location.Hours   
             };
             return loc;
+        }
+
+        public LocationViewModel Save(LocationViewModel location)
+        {
+            var loc = fromLoc(location);
+            db.Entry(loc).State = EntityState.Modified;
+            db.SaveChanges();
+            return LocDto(loc);
+        }
+
+
+        public void Delete(int id)
+        {
+            Location location = db.Locations.Find(id);
+            db.Locations.Remove(location);
+            db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
 
     }

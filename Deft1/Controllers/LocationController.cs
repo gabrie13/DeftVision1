@@ -66,7 +66,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            LocationViewModel location = _locationService.FindById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();
@@ -79,12 +79,11 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,OperationHours")] Location location)
+        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,Hours")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(location).State = EntityState.Modified;
-                db.SaveChanges();
+                _locationService.Save(location);
                 return RedirectToAction("Index");
             }
             return View(location);
@@ -97,7 +96,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            LocationViewModel location = _locationService.FindById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();
@@ -110,9 +109,8 @@ namespace Deft1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Location location = db.Locations.Find(id);
-            db.Locations.Remove(location);
-            db.SaveChanges();
+            _locationService.Delete(id);
+            
             return RedirectToAction("Index");
         }
 
@@ -120,7 +118,7 @@ namespace Deft1.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _locationService.Dispose();
             }
             base.Dispose(disposing);
         }
