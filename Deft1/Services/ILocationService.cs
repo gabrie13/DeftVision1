@@ -12,5 +12,7 @@ namespace Deft1.Services
     {
         List<LocationViewModel> GetAll();
         LocationViewModel FindById(int id);
+
+        LocationViewModel Create(LocationViewModel location);
     }
 }
