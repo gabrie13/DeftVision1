@@ -29,8 +29,6 @@ namespace Deft1.Services
                 City           = loc.City,
                 State          = loc.State,
                 ZipCode        = loc.ZipCode,
-                OperationDay   = loc.OperationDay,
-                Hours          = loc.Hours
             };
         }
 
@@ -59,9 +57,7 @@ namespace Deft1.Services
                 State        = location.State,
                 ZipCode      = location.ZipCode,
                 Email        = location.Email,
-                Phone        = location.Phone,
-                OperationDay = location.OperationDay,
-                Hours        = location.Hours   
+                Phone        = location.Phone, 
             };
             return loc;
         }

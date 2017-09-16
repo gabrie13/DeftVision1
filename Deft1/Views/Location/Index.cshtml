@@ -5,9 +5,7 @@
 }
 
 
-<p>
-    @Html.ActionLink("Add New Location", "Create", null, new { @class = "btn btn-primary" })
-</p>
+<h3 class="alert alert-info">Location Details</h3>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -43,9 +41,7 @@
                 @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
+                @Html.ActionLink("Details", "Details", new { id = item.LocationId })
             </td>
         </tr>
     </tbody>

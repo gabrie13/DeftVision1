@@ -29,12 +29,5 @@ namespace Deft1.Models
         [DataType(DataType.PostalCode)]
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
-
-        [Display(Name = "Days of Operation")]
-        public string OperationDay { get; set; }
-
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}", ApplyFormatInEditMode = true)]
-        public TimeSpan? Hours { get; set; }
     }
 }

@@ -24,9 +24,5 @@ namespace Deft1.Models
         public string State { get; set; }
 
         public string ZipCode { get; set; }
-
-        public string OperationDay { get; set; }
-
-        public TimeSpan? Hours { get; set; }
     }
 }

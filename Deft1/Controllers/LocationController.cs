@@ -48,7 +48,7 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,Hours")] LocationViewModel location)
+        public ActionResult Create([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode,OperationDay,Hours")] LocationViewModel location)
+        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Phone,Email,Address,City,State,ZipCode")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
