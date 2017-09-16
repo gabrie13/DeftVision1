@@ -12,5 +12,9 @@ namespace Deft1.Services
     {
         List<PositionViewModel> GetAll();
         PositionViewModel FindById(int id);
+        PositionViewModel Create(PositionViewModel position);
+        PositionViewModel Save(PositionViewModel position);
+        void Delete(int id);
+        void Dispose();
     }
 }

@@ -57,7 +57,7 @@ namespace Deft1.Services
                 State        = location.State,
                 ZipCode      = location.ZipCode,
                 Email        = location.Email,
-                Phone        = location.Phone, 
+                Phone        = location.Phone
             };
             return loc;
         }

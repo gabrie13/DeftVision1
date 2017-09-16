@@ -47,12 +47,11 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PositionId,PositionTitle")] Position position)
+        public ActionResult Create([Bind(Include = "PositionId,PositionTitle")] PositionViewModel position)
         {
             if (ModelState.IsValid)
             {
-                db.Positions.Add(position);
-                db.SaveChanges();
+                _positionService.Create(position);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +65,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Positions.Find(id);
+            PositionViewModel position = _positionService.FindById(id.Value);
             if (position == null)
             {
                 return HttpNotFound();
@@ -79,12 +78,11 @@ namespace Deft1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PositionId,PositionTitle")] Position position)
+        public ActionResult Edit([Bind(Include = "PositionId,PositionTitle")] PositionViewModel position)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(position).State = EntityState.Modified;
-                db.SaveChanges();
+                _positionService.Save(position);
                 return RedirectToAction("Index");
             }
             return View(position);
@@ -97,7 +95,7 @@ namespace Deft1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Positions.Find(id);
+            PositionViewModel position = _positionService.FindById(id.Value);
             if (position == null)
             {
                 return HttpNotFound();
@@ -110,9 +108,8 @@ namespace Deft1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Position position = db.Positions.Find(id);
-            db.Positions.Remove(position);
-            db.SaveChanges();
+
+            _positionService.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -120,7 +117,7 @@ namespace Deft1.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _positionService.Dispose();
             }
             base.Dispose(disposing);
         }

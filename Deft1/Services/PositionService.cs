@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Deft1.Models;
 using System.Data.Entity;
+using Deft1.Models;
 
 namespace Deft1.Services
 {
@@ -32,5 +32,45 @@ namespace Deft1.Services
             var position = db.Positions.Find(id);
             return position != null ? PosDto(position) : null;
         }
+
+        public PositionViewModel Create(PositionViewModel position)
+        {
+            var pos = fromPos(position);
+            db.Positions.Add(pos);
+            db.SaveChanges();
+            return PosDto(pos);
+        }
+
+        private static Position fromPos(PositionViewModel position)
+        {
+
+            var pos = new Position
+            {
+                PositionId    = position.PositionId,
+                PositionTitle = position.PositionTitle
+            };
+            return pos;
+        }
+
+        public PositionViewModel Save(PositionViewModel position)
+        {
+            var pos = fromPos(position);
+            db.Entry(pos).State = EntityState.Modified;
+            db.SaveChanges();
+            return PosDto(pos);
+        }
+
+        public void Delete(int id)
+        {
+            Position position = db.Positions.Find(id);
+            db.Positions.Remove(position);
+            db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
+
     }
 }

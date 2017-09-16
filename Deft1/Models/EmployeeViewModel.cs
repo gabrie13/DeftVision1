@@ -33,7 +33,7 @@ namespace Deft1.Models
 
         [Display(Name = "Hire Date")]
         [DataType(DataType.Date)]
-        public DateTime? HireDate { get; set; }
+        public DateTime HireDate { get; set; }
 
         [Display(Name = "Position")]
         public virtual Position Position { get; set; }
